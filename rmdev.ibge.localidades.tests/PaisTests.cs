@@ -3,7 +3,7 @@ namespace rmdev.ibge.localidades.tests
     public class PaisTests
     {
         [Fact(DisplayName = "Buscar dados de um pais")]
-        [Trait("Categoria", "Pais")]
+        [Trait("Categoria", "Paises")]
         public async Task CodigoPaisValido_BuscarPaises_DadosPais()
         {
             // Arrange
@@ -41,7 +41,7 @@ namespace rmdev.ibge.localidades.tests
         }
 
         [Fact(DisplayName = "Buscar um pais")]
-		[Trait("Categoria", "Pais")]
+		[Trait("Categoria", "Paises")]
 		public async Task CodigoPaisValido_BuscarPaises_ApenasUmPais()
 		{
             // Arrange
@@ -55,7 +55,7 @@ namespace rmdev.ibge.localidades.tests
         }
 
         [Fact(DisplayName = "Buscar um pais")]
-        [Trait("Categoria", "Pais")]
+        [Trait("Categoria", "Paises")]
         public async Task CodigoPaisValido_BuscarUnicoPais_PaisSolicitado()
         {
             // Arrange
@@ -69,7 +69,7 @@ namespace rmdev.ibge.localidades.tests
         }
 
         [Fact(DisplayName = "Buscar um pais em inglês")]
-        [Trait("Categoria", "Pais")]
+        [Trait("Categoria", "Paises")]
         public async Task CodigoPaisIdiomaIngles_BuscarPaises_DadosEmIngles()
         {
             // Arrange
@@ -84,7 +84,7 @@ namespace rmdev.ibge.localidades.tests
         }
 
         [Fact(DisplayName = "Buscar um pais em espanhol")]
-        [Trait("Categoria", "Pais")]
+        [Trait("Categoria", "Paises")]
         public async Task CodigoPaisIdiomaEspanhol_BuscarPaises_DadosEmEspanhol()
         {
             // Arrange
@@ -99,7 +99,7 @@ namespace rmdev.ibge.localidades.tests
         }
 
         [Fact(DisplayName = "Buscar um pais em português")]
-        [Trait("Categoria", "Pais")]
+        [Trait("Categoria", "Paises")]
         public async Task CodigoPaisIdiomaPortugues_BuscarPaises_DadosEmPortugues()
         {
             // Arrange
@@ -114,7 +114,7 @@ namespace rmdev.ibge.localidades.tests
         }
 
         [Fact(DisplayName = "Buscar dois paises")]
-		[Trait("Categoria", "Pais")]
+		[Trait("Categoria", "Paises")]
 		public async Task CodigosPaisesValidos_BuscarPaises_VariosPais()
 		{
             // Arrange
@@ -129,7 +129,7 @@ namespace rmdev.ibge.localidades.tests
 
 
         [Fact(DisplayName = "Buscar todos os paises")]
-        [Trait("Categoria", "Pais")]
+        [Trait("Categoria", "Paises")]
         public async Task BuscarPaises_TodosPaises()
         {
             // Arrange

@@ -2,10 +2,13 @@
 using System.Threading.Tasks;
 using System.Threading;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace rmdev.ibge.localidades
 {
 #if DEBUG
+
+    [ExcludeFromCodeCoverage]
     public class LoggingHandler : DelegatingHandler
     {
         public LoggingHandler(HttpMessageHandler innerHandler)

@@ -125,6 +125,7 @@ namespace rmdev.ibge.localidades.tests
             var municipios = await api.BuscarMunicipioPorUFAsync(idUF);
 
             // Assert
+            Assert.NotEmpty(municipios);
             Assert.All(municipios, m => Assert.Equal(idUF, m.RegiaoImediata.RegiaoIntermediaria.UF.Id));
         }
 
@@ -140,8 +141,94 @@ namespace rmdev.ibge.localidades.tests
             var municipios = await api.BuscarMunicipioPorUFAsync(idsUF);
 
             // Assert
+            Assert.NotEmpty(municipios);
             var ufs = municipios.Select(m => m.RegiaoImediata.RegiaoIntermediaria.UF.Id).ToHashSet();
             Assert.Subset(idsUF.ToHashSet(), ufs);
+        }
+
+        [Fact(DisplayName = "Buscar municípios de algumas mesorregiões")]
+        [Trait("Categoria", "Municípios")]
+        public async Task IdentificadoresMesorregiaoValidos_BuscarMunicipioPorMesorregiao_MunicipiosFiltrados()
+        {
+            // Arrange
+            var api = new IBGEClientFactory().Build();
+            var idsMesorregiao = new[] { 3301, 3302 };
+
+            // Act
+            var municipios = await api.BuscarMunicipioPorMesorregiaoAsync(idsMesorregiao);
+
+            // Assert
+            Assert.NotEmpty(municipios);
+            var mesoregioes = municipios.Select(m => m.Microrregiao.Mesorregiao.Id).ToHashSet();
+            Assert.Subset(idsMesorregiao.ToHashSet(), mesoregioes);
+        }
+
+        [Fact(DisplayName = "Buscar municípios de algumas microrregiões")]
+        [Trait("Categoria", "Municípios")]
+        public async Task IdentificadoresMicrorregiaoValidos_BuscarMunicipioPorMicrorregiao_MunicipiosFiltrados()
+        {
+            // Arrange
+            var api = new IBGEClientFactory().Build();
+            var idsMicrorregiao = new[] { 33001, 33005 };
+
+            // Act
+            var municipios = await api.BuscarMunicipioPorMicrorregiaoAsync(idsMicrorregiao);
+
+            // Assert
+            Assert.NotEmpty(municipios);
+            var microregioes = municipios.Select(m => m.Microrregiao.Id).ToHashSet();
+            Assert.Subset(idsMicrorregiao.ToHashSet(), microregioes);
+        }
+
+        [Fact(DisplayName = "Buscar municípios de algumas regiões imediatas")]
+        [Trait("Categoria", "Municípios")]
+        public async Task IdentificadoresRegiaoImediataValidos_BuscarMunicipioPorRegiaoImediata_MunicipiosFiltrados()
+        {
+            // Arrange
+            var api = new IBGEClientFactory().Build();
+            var idsRegioesImediatas = new[] { 320005, 320007 };
+
+            // Act
+            var municipios = await api.BuscarMunicipioPorRegiaoImediataAsync(idsRegioesImediatas);
+
+            // Assert
+            Assert.NotEmpty(municipios);
+            var regioesImediatas = municipios.Select(m => m.RegiaoImediata.Id).ToHashSet();
+            Assert.Subset(idsRegioesImediatas.ToHashSet(), regioesImediatas);
+        }
+
+        [Fact(DisplayName = "Buscar municípios de algumas regiões intermediarias")]
+        [Trait("Categoria", "Municípios")]
+        public async Task IdentificadoresRegiaoIntermediariaValidos_BuscarMunicipioPorRegiaoIntermediaria_MunicipiosFiltrados()
+        {
+            // Arrange
+            var api = new IBGEClientFactory().Build();
+            var idsRegioesIntermediarias = new[] { 5206, 5105 };
+
+            // Act
+            var municipios = await api.BuscarMunicipioPorRegiaoIntermediariaAsync(idsRegioesIntermediarias);
+
+            // Assert
+            Assert.NotEmpty(municipios);
+            var regioesIntermediarias = municipios.Select(m => m.RegiaoImediata.RegiaoIntermediaria.Id).ToHashSet();
+            Assert.Subset(idsRegioesIntermediarias.ToHashSet(), regioesIntermediarias);
+        }
+
+        [Fact(DisplayName = "Buscar municípios de algumas macrorregiões")]
+        [Trait("Categoria", "Municípios")]
+        public async Task IdentificadoresMacrorregiaoValidos_BuscarMunicipioPorMacrorregiao_MunicipiosFiltrados()
+        {
+            // Arrange
+            var api = new IBGEClientFactory().Build();
+            var idsMacrorregioes = new[] { 3, 4 };
+
+            // Act
+            var municipios = await api.BuscarMunicipioPorMacrorregiaoAsync(idsMacrorregioes);
+
+            // Assert
+            Assert.NotEmpty(municipios);
+            var regioesIntermediarias = municipios.Select(m => m.RegiaoImediata.RegiaoIntermediaria.UF.Regiao.Id).ToHashSet();
+            Assert.Subset(idsMacrorregioes.ToHashSet(), regioesIntermediarias);
         }
     }
 }

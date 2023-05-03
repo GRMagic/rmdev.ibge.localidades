@@ -91,16 +91,5 @@ namespace rmdev.ibge.localidades
         /// <returns>Lista de municípios nas regiões selecionadas</returns>
         [Get("/api/v1/localidades/regioes/{codigoMacrorregioes}/municipios")]
         Task<List<Municipio>> BuscarMunicipioPorMacrorregiaoAsync(params int[] codigoMacrorregioes);
-
-
-        //TODO: Ver Distritos
-        //TODO: Ver Mesorregiões 
-        //TODO: Ver Microrregiões 
-        //TODO: Ver Regiões imediatas
-        //TODO: Ver Regiões integradas de desenvolvimento
-        //TODO: Ver Regiões intermediárias
-        //TODO: Ver Regiões metropolitanas
-        //TODO: Ver Subdistritos
-
     }
 }

@@ -46,6 +46,14 @@ namespace rmdev.ibge.localidades
         [Get("/api/v1/localidades/paises/{codigosPais}")]
         Task<List<Pais>> BuscarPaisesAsync(int[] codigosPais, [AliasAs("lang")] Idioma idioma);
 
+        /// <summary>
+        /// Obtém o conjunto de países
+        /// </summary>
+        /// <param name="idioma">Idioma de retorno</param>
+        /// <returns>Lista de países</returns>
+        [Get("/api/v1/localidades/paises")]
+        Task<List<Pais>> BuscarPaisesAsync([AliasAs("lang")] Idioma idioma);
+
     }
 
 }

@@ -1,11 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>RMdev IBGE Localidades</Title>
+    <Version>$(VersionPrefix)</Version>
+    <Authors>Gustavo.rm90</Authors>
+    <Company>rmdev</Company>
+    <Description>Pacote para facilitar o consumo da API de localidades do IBGE</Description>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>IBGE;Localidades;Cidades;Estados;UF;Países;Brasil</PackageTags>
+    <IncludeSymbols>True</IncludeSymbols>
+    <RepositoryUrl>https://github.com/GRMagic/rmdev.ibge.localidades</RepositoryUrl>
   </PropertyGroup>
-
+  <ItemGroup>
+    <None Include="..\readme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Refit" Version="6.3.2" />
   </ItemGroup>

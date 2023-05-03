@@ -2,7 +2,7 @@ namespace rmdev.ibge.localidades.tests
 {
     public class PaisTests
     {
-        [Fact(DisplayName = "Buscar dados de um pais")]
+        [Fact(DisplayName = "Buscar dados de um país")]
         [Trait("Categoria", "Paises")]
         public async Task CodigoPaisValido_BuscarPaises_DadosPais()
         {
@@ -40,8 +40,8 @@ namespace rmdev.ibge.localidades.tests
             }, paises.First());
         }
 
-        [Fact(DisplayName = "Buscar um pais")]
-		[Trait("Categoria", "Paises")]
+        [Fact(DisplayName = "Buscar um país")]
+		[Trait("Categoria", "Países")]
 		public async Task CodigoPaisValido_BuscarPaises_ApenasUmPais()
 		{
             // Arrange
@@ -54,8 +54,8 @@ namespace rmdev.ibge.localidades.tests
             Assert.Single(paises);
         }
 
-        [Fact(DisplayName = "Buscar um pais")]
-        [Trait("Categoria", "Paises")]
+        [Fact(DisplayName = "Buscar um país")]
+        [Trait("Categoria", "Países")]
         public async Task CodigoPaisValido_BuscarUnicoPais_PaisSolicitado()
         {
             // Arrange
@@ -68,7 +68,21 @@ namespace rmdev.ibge.localidades.tests
             Assert.NotNull(pais);
         }
 
-        [Fact(DisplayName = "Buscar um pais em inglês")]
+        [Fact(DisplayName = "Buscar todos os países em inglês")]
+        [Trait("Categoria", "Países")]
+        public async Task IdiomaIngles_BuscarPaises_DadosEmIngles()
+        {
+            // Arrange
+            var api = new IBGEClientFactory().Build();
+
+            // Act
+            var paises = await api.BuscarPaisesAsync(Idioma.EN);
+
+            // Assert
+            Assert.Contains(paises, p => p.Nome == "Brazil");
+        }
+
+        [Fact(DisplayName = "Buscar um país em inglês")]
         [Trait("Categoria", "Paises")]
         public async Task CodigoPaisIdiomaIngles_BuscarPaises_DadosEmIngles()
         {

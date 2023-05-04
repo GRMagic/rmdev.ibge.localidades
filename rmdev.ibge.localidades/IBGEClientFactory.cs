@@ -1,6 +1,4 @@
 ﻿using Refit;
-using System.Net.Http;
-using System;
 
 namespace rmdev.ibge.localidades
 {
@@ -8,7 +6,7 @@ namespace rmdev.ibge.localidades
     {
         public const string DefaultBaseURL = "https://servicodados.ibge.gov.br/";
 
-        private readonly RefitSettings RefitSettings = new()
+        private readonly RefitSettings RefitSettings = new RefitSettings()
         {
             UrlParameterFormatter = new PipeUrlParameterFormatter()
         };

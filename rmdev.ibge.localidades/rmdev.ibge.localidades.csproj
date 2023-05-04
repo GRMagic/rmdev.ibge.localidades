@@ -13,6 +13,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>IBGE;Localidades;Cidades;Estados;UF;Países;Brasil</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
+	<EmbedUntrackedSources>true</EmbedUntrackedSources>
     <RepositoryUrl>https://github.com/GRMagic/rmdev.ibge.localidades</RepositoryUrl>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>

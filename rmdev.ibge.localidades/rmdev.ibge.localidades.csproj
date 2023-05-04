@@ -14,6 +14,7 @@
     <PackageTags>IBGE;Localidades;Cidades;Estados;UF;Países;Brasil</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
     <RepositoryUrl>https://github.com/GRMagic/rmdev.ibge.localidades</RepositoryUrl>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\readme.md" Pack="true" PackagePath="\" />

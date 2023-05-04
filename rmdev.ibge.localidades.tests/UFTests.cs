@@ -2,15 +2,17 @@
 {
     public class UFTests
     {
+        private readonly IIBGELocalidades _api;
+        public UFTests() => _api = new IBGEClientFactory().Build("http://servicodados.ibge.gov.br/");
+
         [Fact(DisplayName = "Buscar todas unidades da federação")]
         [Trait("Categoria", "UFs")]
         public async Task BuscarUFs_TodasUFs()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var ufs = await api.BuscarUFsAsync();
+            var ufs = await _api.BuscarUFsAsync();
 
             // Assert
             Assert.True(ufs.Count > 20);
@@ -21,10 +23,9 @@
         public async Task BuscarUF_UmaUF()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var uf = await api.BuscarUFAsync(42);
+            var uf = await _api.BuscarUFAsync(42);
 
             // Assert
             Assert.Equivalent(new UF() 
@@ -46,10 +47,9 @@
         public async Task RegiaoSul_BuscarUFsPorMacrorregiao_TresUFs()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var ufs = await api.BuscarUFsPorMacrorregiaoAsync(4);
+            var ufs = await _api.BuscarUFsPorMacrorregiaoAsync(4);
 
             // Assert
             Assert.True(ufs.Count == 3);

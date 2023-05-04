@@ -6,15 +6,17 @@ namespace rmdev.ibge.localidades.tests
 {
     public class MunicipioTests
     {
+        private readonly IIBGELocalidades _api;
+        public MunicipioTests() => _api = new IBGEClientFactory().Build("http://servicodados.ibge.gov.br/");
+
         [Fact(DisplayName = "Buscar todos os municípios")]
         [Trait("Categoria", "Municípios")]
         public async Task BuscarMunicipios_TodasMunicipios()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var municipios = await api.BuscarMunicipiosAsync();
+            var municipios = await _api.BuscarMunicipiosAsync();
 
             // Assert
             Assert.True(municipios.Count > 5000);
@@ -25,11 +27,10 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadorValido_BuscarMunicipio_MunicipioDadosPreenchidos()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
             var codigoIbge = 4210001;
 
             // Act
-            var municipio = await api.BuscarMunicipioAsync(codigoIbge);
+            var municipio = await _api.BuscarMunicipioAsync(codigoIbge);
 
             // Assert
             Assert.True(municipio is Municipio
@@ -88,10 +89,9 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresValidos_BuscarMunicipios_VariosMunicipios()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var municipios = await api.BuscarMunicipiosAsync(4210001, 3550308);
+            var municipios = await _api.BuscarMunicipiosAsync(4210001, 3550308);
 
             // Assert
             Assert.True(municipios.Count() == 2);
@@ -102,11 +102,10 @@ namespace rmdev.ibge.localidades.tests
         public async Task PeroladOesteBuscarMunicipioPorNome_DadosMunicipio()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
             var nome = "Pérola d'Oeste";
 
             // Act
-            var municipio = await api.BuscarMunicipioPorNomeAsync(nome);
+            var municipio = await _api.BuscarMunicipioPorNomeAsync(nome);
 
             // Assert
             Assert.Equal(nome, municipio.Nome);
@@ -118,11 +117,10 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadorUFValido_BuscarMunicipioPorUF_MunicipiosFiltrados()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
             var idUF = 42;
 
             // Act
-            var municipios = await api.BuscarMunicipioPorUFAsync(idUF);
+            var municipios = await _api.BuscarMunicipioPorUFAsync(idUF);
 
             // Assert
             Assert.NotEmpty(municipios);
@@ -134,11 +132,10 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresUFValidos_BuscarMunicipioPorUF_MunicipiosFiltrados()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
             var idsUF = new[] { 33, 42 };
 
             // Act
-            var municipios = await api.BuscarMunicipioPorUFAsync(idsUF);
+            var municipios = await _api.BuscarMunicipioPorUFAsync(idsUF);
 
             // Assert
             Assert.NotEmpty(municipios);
@@ -151,11 +148,10 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresMesorregiaoValidos_BuscarMunicipioPorMesorregiao_MunicipiosFiltrados()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
             var idsMesorregiao = new[] { 3301, 3302 };
 
             // Act
-            var municipios = await api.BuscarMunicipioPorMesorregiaoAsync(idsMesorregiao);
+            var municipios = await _api.BuscarMunicipioPorMesorregiaoAsync(idsMesorregiao);
 
             // Assert
             Assert.NotEmpty(municipios);
@@ -168,11 +164,10 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresMicrorregiaoValidos_BuscarMunicipioPorMicrorregiao_MunicipiosFiltrados()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
             var idsMicrorregiao = new[] { 33001, 33005 };
 
             // Act
-            var municipios = await api.BuscarMunicipioPorMicrorregiaoAsync(idsMicrorregiao);
+            var municipios = await _api.BuscarMunicipioPorMicrorregiaoAsync(idsMicrorregiao);
 
             // Assert
             Assert.NotEmpty(municipios);
@@ -185,11 +180,10 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresRegiaoImediataValidos_BuscarMunicipioPorRegiaoImediata_MunicipiosFiltrados()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
             var idsRegioesImediatas = new[] { 320005, 320007 };
 
             // Act
-            var municipios = await api.BuscarMunicipioPorRegiaoImediataAsync(idsRegioesImediatas);
+            var municipios = await _api.BuscarMunicipioPorRegiaoImediataAsync(idsRegioesImediatas);
 
             // Assert
             Assert.NotEmpty(municipios);
@@ -202,11 +196,10 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresRegiaoIntermediariaValidos_BuscarMunicipioPorRegiaoIntermediaria_MunicipiosFiltrados()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
             var idsRegioesIntermediarias = new[] { 5206, 5105 };
 
             // Act
-            var municipios = await api.BuscarMunicipioPorRegiaoIntermediariaAsync(idsRegioesIntermediarias);
+            var municipios = await _api.BuscarMunicipioPorRegiaoIntermediariaAsync(idsRegioesIntermediarias);
 
             // Assert
             Assert.NotEmpty(municipios);
@@ -219,11 +212,10 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresMacrorregiaoValidos_BuscarMunicipioPorMacrorregiao_MunicipiosFiltrados()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
             var idsMacrorregioes = new[] { 3, 4 };
 
             // Act
-            var municipios = await api.BuscarMunicipioPorMacrorregiaoAsync(idsMacrorregioes);
+            var municipios = await _api.BuscarMunicipioPorMacrorregiaoAsync(idsMacrorregioes);
 
             // Assert
             Assert.NotEmpty(municipios);

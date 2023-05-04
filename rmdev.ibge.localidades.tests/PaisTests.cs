@@ -2,15 +2,17 @@ namespace rmdev.ibge.localidades.tests
 {
     public class PaisTests
     {
+        private readonly IIBGELocalidades _api;
+        public PaisTests() => _api = new IBGEClientFactory().Build("http://servicodados.ibge.gov.br/");
+
         [Fact(DisplayName = "Buscar dados de um país")]
         [Trait("Categoria", "Paises")]
         public async Task CodigoPaisValido_BuscarPaises_DadosPais()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var paises = await api.BuscarPaisesAsync(76);
+            var paises = await _api.BuscarPaisesAsync(76);
 
             // Assert
             Assert.Equivalent(new Pais 
@@ -45,10 +47,9 @@ namespace rmdev.ibge.localidades.tests
 		public async Task CodigoPaisValido_BuscarPaises_ApenasUmPais()
 		{
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var paises = await api.BuscarPaisesAsync(76);
+            var paises = await _api.BuscarPaisesAsync(76);
 
             // Assert
             Assert.Single(paises);
@@ -59,10 +60,9 @@ namespace rmdev.ibge.localidades.tests
         public async Task CodigoPaisValido_BuscarUnicoPais_PaisSolicitado()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var pais = await api.BuscarPaisAsync(76);
+            var pais = await _api.BuscarPaisAsync(76);
 
             // Assert
             Assert.NotNull(pais);
@@ -73,10 +73,9 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdiomaIngles_BuscarPaises_DadosEmIngles()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var paises = await api.BuscarPaisesAsync(Idioma.EN);
+            var paises = await _api.BuscarPaisesAsync(Idioma.EN);
 
             // Assert
             Assert.Contains(paises, p => p.Nome == "Brazil");
@@ -87,10 +86,9 @@ namespace rmdev.ibge.localidades.tests
         public async Task CodigoPaisIdiomaIngles_BuscarPaises_DadosEmIngles()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var paises = await api.BuscarPaisesAsync(76, Idioma.EN);
+            var paises = await _api.BuscarPaisesAsync(76, Idioma.EN);
 
             // Assert
             var pais = paises.First();
@@ -102,10 +100,9 @@ namespace rmdev.ibge.localidades.tests
         public async Task CodigoPaisIdiomaEspanhol_BuscarPaises_DadosEmEspanhol()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var paises = await api.BuscarPaisesAsync(76, Idioma.ES);
+            var paises = await _api.BuscarPaisesAsync(76, Idioma.ES);
 
             // Assert
             var pais = paises.First();
@@ -117,10 +114,9 @@ namespace rmdev.ibge.localidades.tests
         public async Task CodigoPaisIdiomaPortugues_BuscarPaises_DadosEmPortugues()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var paises = await api.BuscarPaisesAsync(76, Idioma.PT);
+            var paises = await _api.BuscarPaisesAsync(76, Idioma.PT);
 
             // Assert
             var pais = paises.First();
@@ -132,10 +128,9 @@ namespace rmdev.ibge.localidades.tests
 		public async Task CodigosPaisesValidos_BuscarPaises_VariosPais()
 		{
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var paises = await api.BuscarPaisesAsync(76, 4);
+            var paises = await _api.BuscarPaisesAsync(76, 4);
 
             // Assert
             Assert.Equal(2, paises.Count());
@@ -147,10 +142,9 @@ namespace rmdev.ibge.localidades.tests
         public async Task BuscarPaises_TodosPaises()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var paises = await api.BuscarPaisesAsync();
+            var paises = await _api.BuscarPaisesAsync();
 
             // Assert
             Assert.True(paises.Count() > 150);

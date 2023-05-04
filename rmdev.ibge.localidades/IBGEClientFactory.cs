@@ -15,13 +15,7 @@ namespace rmdev.ibge.localidades
 
         public IIBGELocalidades Build(string baseURL = DefaultBaseURL)
         {
-#if DEBUG
-            var httpClient = new HttpClient(new LoggingHandler(new HttpClientHandler()));
-            httpClient.BaseAddress = new Uri(baseURL);
-            return RestService.For<IIBGELocalidades>(httpClient, RefitSettings);
-#else
             return RestService.For<IIBGELocalidades>(baseURL, RefitSettings);
-#endif
         }
     }
 

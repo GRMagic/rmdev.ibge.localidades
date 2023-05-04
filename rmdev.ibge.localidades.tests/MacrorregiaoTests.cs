@@ -2,16 +2,17 @@
 {
     public class MacrorregiaoTests
     {
+        private readonly IIBGELocalidades _api;
+        public MacrorregiaoTests() => _api = new IBGEClientFactory().Build("http://servicodados.ibge.gov.br/");
 
 		[Fact(DisplayName = "Buscar todas as macroregiões")]
 		[Trait("Categoria", "Macrorregiões")]
 		public async Task BuscarMacrorregioes_TodasMacrorregioes()
 		{
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var regioes = await api.BuscarMacrorregioesAsync();
+            var regioes = await _api.BuscarMacrorregioesAsync();
 
             // Assert
             Assert.True(regioes.Count() > 4);
@@ -22,10 +23,9 @@
         public async Task DoisCodigosValidos_BuscarMacrorregioes_DuasMacrorregioes()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var regioes = await api.BuscarMacrorregioesAsync(1, 2);
+            var regioes = await _api.BuscarMacrorregioesAsync(1, 2);
 
             // Assert
             Assert.True(regioes.Count() == 2);
@@ -36,10 +36,9 @@
         public async Task CodigoValido_BuscarMacrorregioes_DadosMacrorregiao()
         {
             // Arrange
-            var api = new IBGEClientFactory().Build();
 
             // Act
-            var regiao = await api.BuscarMacrorregiaoAsync(4);
+            var regiao = await _api.BuscarMacrorregiaoAsync(4);
 
             // Assert
             Assert.Equivalent(new Macrorregiao

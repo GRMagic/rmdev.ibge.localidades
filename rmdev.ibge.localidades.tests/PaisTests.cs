@@ -1,11 +1,11 @@
-namespace rmdev.ibge.localidades.tests
+ï»¿namespace rmdev.ibge.localidades.tests
 {
     public class PaisTests
     {
         private readonly IIBGELocalidades _api;
         public PaisTests() => _api = new IBGEClientFactory().Build("http://servicodados.ibge.gov.br/");
 
-        [Fact(DisplayName = "Buscar dados de um país")]
+        [Fact(DisplayName = "Buscar dados de um paï¿½s")]
         [Trait("Categoria", "Paises")]
         public async Task CodigoPaisValido_BuscarPaises_DadosPais()
         {
@@ -27,25 +27,25 @@ namespace rmdev.ibge.localidades.tests
                 RegiaoIntermediaria = new ()
                 {
                     Id = new() { M49 = 5 },
-                    Nome = "América do sul"
+                    Nome = "Amï¿½rica do sul"
                 },
                 SubRegiao = new ()
                 {
                     Id = new () { M49 = 419 },
-                    Nome = "América Latina e Caribe",
+                    Nome = "Amï¿½rica Latina e Caribe",
                     Regiao = new()
                     {
                         Id = new() { M49= 19 },
-                        Nome = "América"
+                        Nome = "Amï¿½rica"
                     }
                 }
             }, paises.First());
         }
 
-        [Fact(DisplayName = "Buscar um país")]
-		[Trait("Categoria", "Países")]
-		public async Task CodigoPaisValido_BuscarPaises_ApenasUmPais()
-		{
+        [Fact(DisplayName = "Buscar um paï¿½s")]
+        [Trait("Categoria", "Paï¿½ses")]
+        public async Task CodigoPaisValido_BuscarPaises_ApenasUmPais()
+        {
             // Arrange
 
             // Act
@@ -55,8 +55,8 @@ namespace rmdev.ibge.localidades.tests
             Assert.Single(paises);
         }
 
-        [Fact(DisplayName = "Buscar um país")]
-        [Trait("Categoria", "Países")]
+        [Fact(DisplayName = "Buscar um paï¿½s")]
+        [Trait("Categoria", "Paï¿½ses")]
         public async Task CodigoPaisValido_BuscarUnicoPais_PaisSolicitado()
         {
             // Arrange
@@ -68,8 +68,8 @@ namespace rmdev.ibge.localidades.tests
             Assert.NotNull(pais);
         }
 
-        [Fact(DisplayName = "Buscar todos os países em inglês")]
-        [Trait("Categoria", "Países")]
+        [Fact(DisplayName = "Buscar todos os paï¿½ses em inglï¿½s")]
+        [Trait("Categoria", "Paï¿½ses")]
         public async Task IdiomaIngles_BuscarPaises_DadosEmIngles()
         {
             // Arrange
@@ -81,7 +81,7 @@ namespace rmdev.ibge.localidades.tests
             Assert.Contains(paises, p => p.Nome == "Brazil");
         }
 
-        [Fact(DisplayName = "Buscar um país em inglês")]
+        [Fact(DisplayName = "Buscar um paï¿½s em inglï¿½s")]
         [Trait("Categoria", "Paises")]
         public async Task CodigoPaisIdiomaIngles_BuscarPaises_DadosEmIngles()
         {
@@ -106,10 +106,10 @@ namespace rmdev.ibge.localidades.tests
 
             // Assert
             var pais = paises.First();
-            Assert.Equal("América del Sur", pais.RegiaoIntermediaria.Nome);
+            Assert.Equal("Amï¿½rica del Sur", pais.RegiaoIntermediaria.Nome);
         }
 
-        [Fact(DisplayName = "Buscar um pais em português")]
+        [Fact(DisplayName = "Buscar um pais em portuguï¿½s")]
         [Trait("Categoria", "Paises")]
         public async Task CodigoPaisIdiomaPortugues_BuscarPaises_DadosEmPortugues()
         {
@@ -120,13 +120,13 @@ namespace rmdev.ibge.localidades.tests
 
             // Assert
             var pais = paises.First();
-            Assert.Equal("América do sul", pais.RegiaoIntermediaria!.Nome);
+            Assert.Equal("Amï¿½rica do sul", pais.RegiaoIntermediaria!.Nome);
         }
 
         [Fact(DisplayName = "Buscar dois paises")]
-		[Trait("Categoria", "Paises")]
-		public async Task CodigosPaisesValidos_BuscarPaises_VariosPais()
-		{
+        [Trait("Categoria", "Paises")]
+        public async Task CodigosPaisesValidos_BuscarPaises_VariosPais()
+        {
             // Arrange
 
             // Act

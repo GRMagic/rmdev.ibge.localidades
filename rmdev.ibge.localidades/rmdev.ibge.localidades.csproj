@@ -6,17 +6,26 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>RMdev IBGE Localidades</Title>
-    <Version>1.0.3</Version>
+    <Version>1.0.5</Version>
     <Authors>Gustavo.rm90</Authors>
     <Company>rmdev</Company>
     <Description>Pacote para facilitar o consumo da API de localidades do IBGE</Description>
-    <RepositoryType>git</RepositoryType>
     <PackageTags>IBGE;Localidades;Cidades;Estados;UF;Países;Brasil</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
-	<EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/GRMagic/rmdev.ibge.localidades</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\readme.md" Pack="true" PackagePath="\" />
   </ItemGroup>

@@ -17,11 +17,14 @@ jobs:
       with:
         dotnet-version: '7.0.x'
 
-    - name: Contruir e Criar Pacote
+    - name: Contruir
       run: dotnet build --configuration Release
 
     - name: Testar
       run: dotnet test
     
+    - name: Gerar Pacote
+      run: dotnet test
+    
     - name: Publicar
-      run: dotnet nuget push ./rmdev.ibge.localidades/bin/Release/*.symbols.nupkg -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./rmdev.ibge.localidades/bin/Release/*.nupkg -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json

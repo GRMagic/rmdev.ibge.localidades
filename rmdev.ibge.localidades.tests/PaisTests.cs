@@ -5,8 +5,8 @@
         private readonly IIBGELocalidades _api;
         public PaisTests() => _api = new IBGEClientFactory().Build("http://servicodados.ibge.gov.br/");
 
-        [Fact(DisplayName = "Buscar dados de um pa�s")]
-        [Trait("Categoria", "Paises")]
+        [Fact(DisplayName = "Buscar dados de um país")]
+        [Trait("Categoria", "Países")]
         public async Task CodigoPaisValido_BuscarPaises_DadosPais()
         {
             // Arrange
@@ -27,23 +27,23 @@
                 RegiaoIntermediaria = new ()
                 {
                     Id = new() { M49 = 5 },
-                    Nome = "Am�rica do sul"
+                    Nome = "América do sul"
                 },
                 SubRegiao = new ()
                 {
                     Id = new () { M49 = 419 },
-                    Nome = "Am�rica Latina e Caribe",
+                    Nome = "América Latina e Caribe",
                     Regiao = new()
                     {
                         Id = new() { M49= 19 },
-                        Nome = "Am�rica"
+                        Nome = "América"
                     }
                 }
             }, paises.First());
         }
 
-        [Fact(DisplayName = "Buscar um pa�s")]
-        [Trait("Categoria", "Pa�ses")]
+        [Fact(DisplayName = "Buscar um país")]
+        [Trait("Categoria", "Países")]
         public async Task CodigoPaisValido_BuscarPaises_ApenasUmPais()
         {
             // Arrange
@@ -55,8 +55,8 @@
             Assert.Single(paises);
         }
 
-        [Fact(DisplayName = "Buscar um pa�s")]
-        [Trait("Categoria", "Pa�ses")]
+        [Fact(DisplayName = "Buscar um país")]
+        [Trait("Categoria", "Países")]
         public async Task CodigoPaisValido_BuscarUnicoPais_PaisSolicitado()
         {
             // Arrange
@@ -68,8 +68,8 @@
             Assert.NotNull(pais);
         }
 
-        [Fact(DisplayName = "Buscar todos os pa�ses em ingl�s")]
-        [Trait("Categoria", "Pa�ses")]
+        [Fact(DisplayName = "Buscar todos os países em inglês")]
+        [Trait("Categoria", "Países")]
         public async Task IdiomaIngles_BuscarPaises_DadosEmIngles()
         {
             // Arrange
@@ -81,8 +81,8 @@
             Assert.Contains(paises, p => p.Nome == "Brazil");
         }
 
-        [Fact(DisplayName = "Buscar um pa�s em ingl�s")]
-        [Trait("Categoria", "Paises")]
+        [Fact(DisplayName = "Buscar um país em inglês")]
+        [Trait("Categoria", "Países")]
         public async Task CodigoPaisIdiomaIngles_BuscarPaises_DadosEmIngles()
         {
             // Arrange
@@ -95,8 +95,8 @@
             Assert.Equal("Brazil", pais.Nome);
         }
 
-        [Fact(DisplayName = "Buscar um pais em espanhol")]
-        [Trait("Categoria", "Paises")]
+        [Fact(DisplayName = "Buscar um país em espanhol")]
+        [Trait("Categoria", "Países")]
         public async Task CodigoPaisIdiomaEspanhol_BuscarPaises_DadosEmEspanhol()
         {
             // Arrange
@@ -106,11 +106,11 @@
 
             // Assert
             var pais = paises.First();
-            Assert.Equal("Am�rica del Sur", pais.RegiaoIntermediaria.Nome);
+            Assert.Equal("América del Sur", pais.RegiaoIntermediaria.Nome);
         }
 
-        [Fact(DisplayName = "Buscar um pais em portugu�s")]
-        [Trait("Categoria", "Paises")]
+        [Fact(DisplayName = "Buscar um país em português")]
+        [Trait("Categoria", "Países")]
         public async Task CodigoPaisIdiomaPortugues_BuscarPaises_DadosEmPortugues()
         {
             // Arrange
@@ -120,11 +120,11 @@
 
             // Assert
             var pais = paises.First();
-            Assert.Equal("Am�rica do sul", pais.RegiaoIntermediaria!.Nome);
+            Assert.Equal("América do sul", pais.RegiaoIntermediaria!.Nome);
         }
 
-        [Fact(DisplayName = "Buscar dois paises")]
-        [Trait("Categoria", "Paises")]
+        [Fact(DisplayName = "Buscar dois países")]
+        [Trait("Categoria", "Países")]
         public async Task CodigosPaisesValidos_BuscarPaises_VariosPais()
         {
             // Arrange
@@ -137,8 +137,8 @@
         }
 
 
-        [Fact(DisplayName = "Buscar todos os paises")]
-        [Trait("Categoria", "Paises")]
+        [Fact(DisplayName = "Buscar todos os países")]
+        [Trait("Categoria", "Países")]
         public async Task BuscarPaises_TodosPaises()
         {
             // Arrange

@@ -83,12 +83,12 @@ namespace rmdev.ibge.localidades
         }
 
         
-        //TODO: Ler documentação e emplementar consultas por mesorregiões 
-        //TODO: Ler documentação e emplementar consultas por microrregiões 
-        //TODO: Ler documentação e emplementar consultas por regiões imediatas
-        //TODO: Ler documentação e emplementar consultas por regiões integradas de desenvolvimento
-        //TODO: Ler documentação e emplementar consultas por regiões intermediárias
-        //TODO: Ler documentação e emplementar consultas por regiões metropolitanas
-        //TODO: Ler documentação e emplementar consultas por subdistritos
+        //TODO: Ler documentação e implementar consultas por mesorregiões 
+        //TODO: Ler documentação e implementar consultas por microrregiões 
+        //TODO: Ler documentação e implementar consultas por regiões imediatas
+        //TODO: Ler documentação e implementar consultas por regiões integradas de desenvolvimento
+        //TODO: Ler documentação e implementar consultas por regiões intermediárias
+        //TODO: Ler documentação e implementar consultas por regiões metropolitanas
+        //TODO: Ler documentação e implementar consultas por subdistritos
     }
 }

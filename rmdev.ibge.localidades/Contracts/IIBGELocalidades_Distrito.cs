@@ -7,8 +7,6 @@ namespace rmdev.ibge.localidades
 {
     public partial interface IIBGELocalidades
     {
-        //TODO: Ver Distritos
-
         /// <summary>
         /// Obtém o conjunto de distritos do Brasil a partir dos respectivos identificadores
         /// </summary>
@@ -85,12 +83,12 @@ namespace rmdev.ibge.localidades
         }
 
         
-        //TODO: Ver Mesorregiões 
-        //TODO: Ver Microrregiões 
-        //TODO: Ver Regiões imediatas
-        //TODO: Ver Regiões integradas de desenvolvimento
-        //TODO: Ver Regiões intermediárias
-        //TODO: Ver Regiões metropolitanas
-        //TODO: Ver Subdistritos
+        //TODO: Ler documentação e emplementar consultas por mesorregiões 
+        //TODO: Ler documentação e emplementar consultas por microrregiões 
+        //TODO: Ler documentação e emplementar consultas por regiões imediatas
+        //TODO: Ler documentação e emplementar consultas por regiões integradas de desenvolvimento
+        //TODO: Ler documentação e emplementar consultas por regiões intermediárias
+        //TODO: Ler documentação e emplementar consultas por regiões metropolitanas
+        //TODO: Ler documentação e emplementar consultas por subdistritos
     }
 }

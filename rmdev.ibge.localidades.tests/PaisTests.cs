@@ -106,7 +106,7 @@
 
             // Assert
             var pais = paises.First();
-            Assert.Equal("América del Sur", pais.RegiaoIntermediaria.Nome);
+            Assert.Equal("América del Sur", pais.RegiaoIntermediaria?.Nome);
         }
 
         [Fact(DisplayName = "Buscar um país em português")]

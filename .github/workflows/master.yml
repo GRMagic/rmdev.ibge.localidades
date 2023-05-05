@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  Construir-Testar-Publicar:
     runs-on: ubuntu-latest
 
     steps:

@@ -72,7 +72,7 @@ namespace rmdev.ibge.localidades
         Task<List<Distrito>> BuscarDistritosPorMacrorregiaoAsync(params int[] codigoMacrorregiao);
 
         /// <summary>
-        /// Obtém um único distritos do Brasil a partir do identificador
+        /// Obtém um único distrito do Brasil a partir do identificador
         /// </summary>
         /// <param name="codigoDistrito">Identificador de distrito</param>
         /// <returns>Dados do distrito</returns>

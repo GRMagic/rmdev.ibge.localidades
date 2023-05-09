@@ -17,7 +17,10 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoDistritos">Um ou mais identificadores de distrito</param>
         /// <returns>Lista de distritos</returns>
         public async Task<List<Distrito>> BuscarDistritosAsync(params long[] codigoDistritos)
-            => await (await BuscarDistritosInternalAsync(codigoDistritos)).LerComoLista<Distrito>();
+        {
+            var response = await BuscarDistritosInternalAsync(codigoDistritos);
+            return await response.LerComoLista<Distrito>();
+        }
 
         /// <summary>
         /// Obtém o conjunto de distritos do Brasil a partir dos identificadores das Unidades da Federação
@@ -81,7 +84,10 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoDistrito">Identificador de distrito</param>
         /// <returns>Dados do distrito</returns>
         public async Task<Distrito?> BuscarDistritoAsync(long codigoDistrito)
-            => (await BuscarDistritosAsync(codigoDistrito)).FirstOrDefault();
+        {
+            var distritos = await BuscarDistritosAsync(codigoDistrito);
+            return distritos.FirstOrDefault();
+        }
 
         //TODO: Ler documentação e implementar consultas por microrregiões 
         //TODO: Ler documentação e implementar consultas por regiões imediatas

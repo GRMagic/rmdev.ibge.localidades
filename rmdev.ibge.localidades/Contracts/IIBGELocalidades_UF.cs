@@ -1,5 +1,7 @@
 ﻿using Refit;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace rmdev.ibge.localidades
@@ -12,8 +14,14 @@ namespace rmdev.ibge.localidades
         /// </summary>
         /// <param name="codigoUF">Identificador da Unidade da Federação</param>
         /// <returns>Dados da Unidade da Federação</returns>
-        [Get("/api/v1/localidades/estados/{codigoUF}")]
-        Task<UF> BuscarUFAsync(long codigoUF);
+        public async Task<UF> BuscarUFAsync(long codigoUF)
+        {
+            var ufs = await BuscarUFsAsync(codigoUF);
+            return ufs.FirstOrDefault();
+        }
+
+        [Get("/api/v1/localidades/estados/{codigoUFs}")]
+        internal Task<HttpResponseMessage> BuscarUFsInternalAsync(params long[] codigoUFs);
 
         /// <summary>
         /// Obtém o conjunto de Unidades da Federação do Brasil
@@ -21,7 +29,11 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoUFs">Identificadores de Unidades da Federação</param>
         /// <returns>Lista de Unidades da Federação</returns>
         [Get("/api/v1/localidades/estados/{codigoUFs}")]
-        Task<List<UF>> BuscarUFsAsync(params long[] codigoUFs);
+        public async Task<List<UF>> BuscarUFsAsync(params long[] codigoUFs)
+        {
+            var response = await BuscarUFsInternalAsync(codigoUFs);
+            return await response.LerComoLista<UF>();
+        }
 
         /// <summary>
         /// Obtém o conjunto de Unidades da Federação do Brasil

@@ -2,36 +2,41 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace rmdev.ibge.localidades
 {
     public partial interface IIBGELocalidades
     {
+        
+        [Get("/api/v1/localidades/municipios/{codigoMunicipios}")]
+        internal Task<HttpResponseMessage> BuscarMunicipiosInternalAsync(params long[] codigoMunicipios);
+
         /// <summary>
         /// Obtém o conjunto de municípios do Brasil
         /// </summary>
         /// <param name="codigoMunicipios">Identificadores de municipios</param>
         /// <returns>Lista de municípios</returns>
-        [Get("/api/v1/localidades/municipios/{codigoMunicipios}")]
-        Task<List<Municipio>> BuscarMunicipiosAsync(params long[] codigoMunicipios);
+        public async Task<List<Municipio>> BuscarMunicipiosAsync(params long[] codigoMunicipios)
+        {
+            var response = await BuscarMunicipiosInternalAsync(codigoMunicipios);
+            return await response.LerComoLista<Municipio>();
+        }
 
         /// <summary>
         /// Obtém um município do Brasil
         /// </summary>
         /// <param name="codigoMunicipio">Identificador de municipio</param>
         /// <returns>Dados do município</returns>
-        [Get("/api/v1/localidades/municipios/{codigoMunicipio}")]
-        Task<Municipio> BuscarMunicipioAsync(long codigoMunicipio);
+        public async Task<Municipio> BuscarMunicipioAsync(long codigoMunicipio)
+        {
+            var municipios = await BuscarMunicipiosAsync(codigoMunicipio);
+            return municipios.FirstOrDefault();
+        }
 
-        /// <summary>
-        /// Obtém um município do Brasil
-        /// </summary>
-        /// <param name="nomeMunicipio">Nome do município usando - em vez de espaços, se houver, e remova acentos, aspas e caracteres especiais</param>
-        /// <remarks>Prefira a função <see cref="BuscarMunicipioPorNomeAsync"/>, ela tratar o nome do município automaticamente.</remarks>
-        /// <returns>Dados do município</returns>
         [Get("/api/v1/localidades/municipios/{nomeMunicipio}")]
-        Task<Municipio> BuscarMunicipioAsync(string nomeMunicipio);
+        internal Task<HttpResponseMessage> BuscarMunicipiosInternalAsync(string nomeMunicipio);
 
         /// <summary>
         /// Obtém um município do Brasil
@@ -41,7 +46,9 @@ namespace rmdev.ibge.localidades
         async Task<Municipio> BuscarMunicipioPorNomeAsync(string nomeMunicipio)
         {
             nomeMunicipio = nomeMunicipio.NormalizarNomeCidade();
-            return await BuscarMunicipioAsync(nomeMunicipio);
+            var response = await BuscarMunicipiosInternalAsync(nomeMunicipio);
+            var municipios = await response.LerComoLista<Municipio>();
+            return municipios.FirstOrDefault();
         }
 
         /// <summary>

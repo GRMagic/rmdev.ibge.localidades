@@ -132,7 +132,7 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresUFValidos_BuscarMunicipioPorUF_MunicipiosFiltrados()
         {
             // Arrange
-            var idsUF = new[] { 33, 42 };
+            var idsUF = new long[] { 33, 42 };
 
             // Act
             var municipios = await _api.BuscarMunicipioPorUFAsync(idsUF);
@@ -148,7 +148,7 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresMesorregiaoValidos_BuscarMunicipioPorMesorregiao_MunicipiosFiltrados()
         {
             // Arrange
-            var idsMesorregiao = new[] { 3301, 3302 };
+            var idsMesorregiao = new long[] { 3301, 3302 };
 
             // Act
             var municipios = await _api.BuscarMunicipioPorMesorregiaoAsync(idsMesorregiao);
@@ -164,7 +164,7 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresMicrorregiaoValidos_BuscarMunicipioPorMicrorregiao_MunicipiosFiltrados()
         {
             // Arrange
-            var idsMicrorregiao = new[] { 33001, 33005 };
+            var idsMicrorregiao = new long[] { 33001, 33005 };
 
             // Act
             var municipios = await _api.BuscarMunicipioPorMicrorregiaoAsync(idsMicrorregiao);
@@ -180,7 +180,7 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresRegiaoImediataValidos_BuscarMunicipioPorRegiaoImediata_MunicipiosFiltrados()
         {
             // Arrange
-            var idsRegioesImediatas = new[] { 320005, 320007 };
+            var idsRegioesImediatas = new long[] { 320005, 320007 };
 
             // Act
             var municipios = await _api.BuscarMunicipioPorRegiaoImediataAsync(idsRegioesImediatas);
@@ -196,7 +196,7 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresRegiaoIntermediariaValidos_BuscarMunicipioPorRegiaoIntermediaria_MunicipiosFiltrados()
         {
             // Arrange
-            var idsRegioesIntermediarias = new[] { 5206, 5105 };
+            var idsRegioesIntermediarias = new long[] { 5206, 5105 };
 
             // Act
             var municipios = await _api.BuscarMunicipioPorRegiaoIntermediariaAsync(idsRegioesIntermediarias);
@@ -212,7 +212,7 @@ namespace rmdev.ibge.localidades.tests
         public async Task IdentificadoresMacrorregiaoValidos_BuscarMunicipioPorMacrorregiao_MunicipiosFiltrados()
         {
             // Arrange
-            var idsMacrorregioes = new[] { 3, 4 };
+            var idsMacrorregioes = new long[] { 3, 4 };
 
             // Act
             var municipios = await _api.BuscarMunicipioPorMacrorregiaoAsync(idsMacrorregioes);

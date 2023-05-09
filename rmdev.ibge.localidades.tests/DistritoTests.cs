@@ -23,7 +23,7 @@
         public async Task CodigosValidos_BuscarDistritos_VariosDistritos()
         {
             // Arrange
-            var codigos = new[] { 291790410, 160030312 };
+            var codigos = new long[] { 291790410, 160030312 };
 
             // Act
             var distritos = await _api.BuscarDistritosAsync(codigos);
@@ -104,7 +104,7 @@
         public async Task CodigosValidos_BuscarDistritosPorUF_DistritosDasUFsSelecionadas()
         {
             // Arrange
-            var codigosUF = new[] { 42, 33 };
+            var codigosUF = new long[] { 42, 33 };
 
             // Act
             var distritos = await _api.BuscarDistritosPorUFAsync(codigosUF);
@@ -120,7 +120,7 @@
         public async Task CodigosValidos_BuscarDistritosPorMesorregiao_DistritosDasMesorregioesSelecionadas()
         {
             // Arrange
-            var codigosMesorregioes = new[] { 1602, 4307 };
+            var codigosMesorregioes = new long[] { 1602, 4307 };
 
             // Act
             var distritos = await _api.BuscarDistritosPorMesorregiaoAsync(codigosMesorregioes);
@@ -136,7 +136,7 @@
         public async Task CodigosValidos_BuscarDistritosPorMicrorregiao_DistritosDasMicrorregioesSelecionadas()
         {
             // Arrange
-            var codigosMicrorregioes = new[] { 16003, 43032 };
+            var codigosMicrorregioes = new long[] { 16003, 43032 };
 
             // Act
             var distritos = await _api.BuscarDistritosPorMicrorregiaoAsync(codigosMicrorregioes);
@@ -152,7 +152,7 @@
         public async Task CodigosValidos_BuscarDistritosPorMunicipio_DistritosDosMunicipiosSelecionados()
         {
             // Arrange
-            var codigosMunicipios = new[] { 3550308, 1501402 };
+            var codigosMunicipios = new long[] { 3550308, 1501402 };
 
             // Act
             var distritos = await _api.BuscarDistritosPorMunicipioAsync(codigosMunicipios);
@@ -168,7 +168,7 @@
         public async Task CodigosValidos_BuscarDistritosPorRegiaoImediata_DistritosDasRegioesImediatasSelecionadas()
         {
             // Arrange
-            var codigosRegiaoImediata = new[] { 330002, 330005 };
+            var codigosRegiaoImediata = new long[] { 330002, 330005 };
 
             // Act
             var distritos = await _api.BuscarDistritosPorRegiaoImediataAsync(codigosRegiaoImediata);
@@ -184,7 +184,7 @@
         public async Task CodigosValidos_BuscarDistritosPorRegiaoIntermediaria_DistritosDasRegioesIntermediariasSelecionadas()
         {
             // Arrange
-            var codigosRegiaoIntermediaria = new[] { 2604, 2908 };
+            var codigosRegiaoIntermediaria = new long[] { 2604, 2908 };
 
             // Act
             var distritos = await _api.BuscarDistritosPorRegiaoIntermediariaAsync(codigosRegiaoIntermediaria);
@@ -200,7 +200,7 @@
         public async Task CodigosValidos_BuscarDistritosPorMacrorregiao_DistritosDasMacrorregioesSelecionadas()
         {
             // Arrange
-            var codigosMacrorregiao = new[] { 3, 4 };
+            var codigosMacrorregiao = new long[] { 3, 4 };
 
             // Act
             var distritos = await _api.BuscarDistritosPorMacrorregiaoAsync(codigosMacrorregiao);

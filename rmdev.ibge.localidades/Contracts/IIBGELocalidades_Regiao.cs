@@ -13,7 +13,7 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoMacrorregiao">Identificador de região</param>
         /// <returns>Dados da macrorregião</returns>
         [Get("/api/v1/localidades/regioes/{codigoMacrorregiao}")]
-        Task<Macrorregiao> BuscarMacrorregiaoAsync(int codigoMacrorregiao);
+        Task<Macrorregiao> BuscarMacrorregiaoAsync(long codigoMacrorregiao);
 
         /// <summary>
         /// Obtém o conjunto de regiões do Brasil
@@ -21,7 +21,7 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoMacrorregioes">Identificadores de regiões</param>
         /// <returns>Lista das macrorregiões</returns>
         [Get("/api/v1/localidades/regioes/{codigoMacrorregioes}")]
-        Task<List<Macrorregiao>> BuscarMacrorregioesAsync(params int[] codigoMacrorregioes);
+        Task<List<Macrorregiao>> BuscarMacrorregioesAsync(params long[] codigoMacrorregioes);
 
     }
 }

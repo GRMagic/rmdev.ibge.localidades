@@ -14,7 +14,7 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoMunicipios">Identificadores de municipios</param>
         /// <returns>Lista de municípios</returns>
         [Get("/api/v1/localidades/municipios/{codigoMunicipios}")]
-        Task<List<Municipio>> BuscarMunicipiosAsync(params int[] codigoMunicipios);
+        Task<List<Municipio>> BuscarMunicipiosAsync(params long[] codigoMunicipios);
 
         /// <summary>
         /// Obtém um município do Brasil
@@ -22,7 +22,7 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoMunicipio">Identificador de municipio</param>
         /// <returns>Dados do município</returns>
         [Get("/api/v1/localidades/municipios/{codigoMunicipio}")]
-        Task<Municipio> BuscarMunicipioAsync(int codigoMunicipio);
+        Task<Municipio> BuscarMunicipioAsync(long codigoMunicipio);
 
         /// <summary>
         /// Obtém um município do Brasil
@@ -50,7 +50,7 @@ namespace rmdev.ibge.localidades
         /// <param name="idUF">Um ou mais identificadores de Unidades da Federação</param>
         /// <returns>Dados do município</returns>
         [Get("/api/v1/localidades/estados/{idUF}/municipios")]
-        Task<List<Municipio>> BuscarMunicipioPorUFAsync(params int[] idUF);
+        Task<List<Municipio>> BuscarMunicipioPorUFAsync(params long[] idUF);
 
         /// <summary>
         /// Obtém o conjunto de municípios do Brasil a partir dos identificadores das mesorregiões
@@ -58,7 +58,7 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoMesorregioes">Um ou mais identificadores de mesorregiões</param>
         /// <returns>Lista de municípios nas regiões selecionadas</returns>
         [Get("/api/v1/localidades/mesorregioes/{codigoMesorregioes}/municipios")]
-        Task<List<Municipio>> BuscarMunicipioPorMesorregiaoAsync(params int[] codigoMesorregioes);
+        Task<List<Municipio>> BuscarMunicipioPorMesorregiaoAsync(params long[] codigoMesorregioes);
 
         /// <summary>
         /// Obtém o conjunto de municípios do Brasil a partir dos identificadores das microrregiões
@@ -66,7 +66,7 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoMicrorregioes">Um ou mais identificadores de microrregiões</param>
         /// <returns>Lista de municípios nas regiões selecionadas</returns>
         [Get("/api/v1/localidades/microrregioes/{codigoMicrorregioes}/municipios")]
-        Task<List<Municipio>> BuscarMunicipioPorMicrorregiaoAsync(params int[] codigoMicrorregioes);
+        Task<List<Municipio>> BuscarMunicipioPorMicrorregiaoAsync(params long[] codigoMicrorregioes);
 
         /// <summary>
         /// Obtém o conjunto de municípios do Brasil a partir dos identificadores das regiões imediatas
@@ -74,7 +74,7 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoRegioesImediatas">Um ou mais identificadores de regiões imediatas</param>
         /// <returns>Lista de municípios nas regiões selecionadas</returns>
         [Get("/api/v1/localidades/regioes-imediatas/{codigoRegioesImediatas}/municipios")]
-        Task<List<Municipio>> BuscarMunicipioPorRegiaoImediataAsync(params int[] codigoRegioesImediatas);
+        Task<List<Municipio>> BuscarMunicipioPorRegiaoImediataAsync(params long[] codigoRegioesImediatas);
 
         /// <summary>
         /// Obtém o conjunto de municípios do Brasil a partir dos identificadores das regiões intermediárias
@@ -82,7 +82,7 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoRegioesIntermediarias">Um ou mais identificadores de regiões intermediárias</param>
         /// <returns>Lista de municípios nas regiões selecionadas</returns>
         [Get("/api/v1/localidades/regioes-intermediarias/{codigoRegioesIntermediarias}/municipios")]
-        Task<List<Municipio>> BuscarMunicipioPorRegiaoIntermediariaAsync(params int[] codigoRegioesIntermediarias);
+        Task<List<Municipio>> BuscarMunicipioPorRegiaoIntermediariaAsync(params long[] codigoRegioesIntermediarias);
 
         /// <summary>
         /// Obtém o conjunto de municípios do Brasil a partir dos identificadores das regiões
@@ -90,6 +90,6 @@ namespace rmdev.ibge.localidades
         /// <param name="codigoMacrorregioes">Um ou mais identificadores de regiões</param>
         /// <returns>Lista de municípios nas regiões selecionadas</returns>
         [Get("/api/v1/localidades/regioes/{codigoMacrorregioes}/municipios")]
-        Task<List<Municipio>> BuscarMunicipioPorMacrorregiaoAsync(params int[] codigoMacrorregioes);
+        Task<List<Municipio>> BuscarMunicipioPorMacrorregiaoAsync(params long[] codigoMacrorregioes);
     }
 }

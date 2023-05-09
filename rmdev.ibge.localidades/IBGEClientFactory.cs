@@ -1,4 +1,8 @@
 ﻿using Refit;
+using System;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace rmdev.ibge.localidades
 {
@@ -16,5 +20,4 @@ namespace rmdev.ibge.localidades
             return RestService.For<IIBGELocalidades>(baseURL, RefitSettings);
         }
     }
-
 }

@@ -1,19 +1,26 @@
 ﻿using Refit;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace rmdev.ibge.localidades
 {
     public partial interface IIBGELocalidades
     {
+        [Get("/api/v1/localidades/distritos/{codigoDistritos}")]
+        internal Task<HttpResponseMessage> BuscarDistritosInternalAsync(params long[] codigoDistritos);
+
         /// <summary>
         /// Obtém o conjunto de distritos do Brasil a partir dos respectivos identificadores
         /// </summary>
         /// <param name="codigoDistritos">Um ou mais identificadores de distrito</param>
         /// <returns>Lista de distritos</returns>
-        [Get("/api/v1/localidades/distritos/{codigoDistritos}")]
-        Task<List<Distrito>> BuscarDistritosAsync(params long[] codigoDistritos);
+        public async Task<List<Distrito>> BuscarDistritosAsync(params long[] codigoDistritos)
+        {
+            var response = await BuscarDistritosInternalAsync(codigoDistritos);
+            return await response.LerComoLista<Distrito>();
+        }
 
         /// <summary>
         /// Obtém o conjunto de distritos do Brasil a partir dos identificadores das Unidades da Federação
@@ -82,8 +89,6 @@ namespace rmdev.ibge.localidades
             return distritos.FirstOrDefault();
         }
 
-        
-        //TODO: Ler documentação e implementar consultas por mesorregiões 
         //TODO: Ler documentação e implementar consultas por microrregiões 
         //TODO: Ler documentação e implementar consultas por regiões imediatas
         //TODO: Ler documentação e implementar consultas por regiões integradas de desenvolvimento

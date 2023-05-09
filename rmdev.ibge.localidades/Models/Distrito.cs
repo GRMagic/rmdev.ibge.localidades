@@ -2,7 +2,7 @@
 {
     public class Distrito
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Nome { get; set; }
         public Municipio Municipio { get; set; }
     }

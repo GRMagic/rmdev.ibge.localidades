@@ -23,19 +23,5 @@ namespace rmdev.ibge.localidades
             }
             return base.Format(parameterValue, attributeProvider, type);
         }
-
-        //public override string Format(object? parameterValue, ParameterInfo parameterInfo)
-        //{
-        //    if (parameterValue == null)
-        //        return null;
-
-        //    // Option 1: Just look for IEnumerable<int>
-        //    if (typeof(IEnumerable<int>).IsAssignableFrom(parameterInfo.ParameterType))
-        //        return string.Join(",", (IEnumerable<int>)parameterValue);
-
-
-
-        //    return base.Format(parameterValue, parameterInfo);
-        //}
     }
 }

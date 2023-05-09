@@ -28,7 +28,6 @@ namespace rmdev.ibge.localidades
         /// </summary>
         /// <param name="codigoUFs">Identificadores de Unidades da Federação</param>
         /// <returns>Lista de Unidades da Federação</returns>
-        [Get("/api/v1/localidades/estados/{codigoUFs}")]
         public async Task<List<UF>> BuscarUFsAsync(params long[] codigoUFs)
         {
             var response = await BuscarUFsInternalAsync(codigoUFs);

@@ -106,7 +106,7 @@
 
         [Fact(DisplayName = "Buscar mesoregiões de duas UF")]
         [Trait("Categoria", "Mesorregiões")]
-        public async Task DuasUF_BuscarMesorregioesPorUF_RegioesDeAbasUFs()
+        public async Task DuasUFs_BuscarMesorregioesPorUF_RegioesDeAmbasUFs()
         {
             // Arrange
 

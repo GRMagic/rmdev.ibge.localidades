@@ -6,7 +6,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>RMdev IBGE Localidades</Title>
-    <Version>1.0.9</Version>
+    <Version>1.0.10</Version>
     <Authors>Gustavo.rm90</Authors>
     <Company>rmdev</Company>
     <Description>Pacote para facilitar o consumo da API de localidades do IBGE. Permite listar, Paises e Estados, Cidades, Distritos, etc.</Description>

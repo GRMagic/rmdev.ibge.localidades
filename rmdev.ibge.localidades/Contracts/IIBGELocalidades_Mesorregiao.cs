@@ -27,12 +27,26 @@ namespace rmdev.ibge.localidades
         /// </summary>
         /// <param name="codigoMesorregiao">Um identificador de mesorregião</param>
         /// <returns>Dados da mesorregião</returns>
-        public async Task<Mesorregiao?> BuscarMesorregiaoAsync(long codigoMesorregiao)
+        async Task<Mesorregiao?> BuscarMesorregiaoAsync(long codigoMesorregiao)
         {
             var regioes = await BuscarMesorregioesAsync(codigoMesorregiao);
             return regioes.FirstOrDefault();
         }
 
-        // TODO: Continuar aqui!
+        /// <summary>
+        /// Obtém o conjunto de mesorregiões do Brasil a partir dos identificadores das Unidades da Federação
+        /// </summary>
+        /// <param name="codigoUFs">Um ou mais identificadores de Unidades da Federação</param>
+        /// <returns>Lista de mesorregiões</returns>
+        [Get("/api/v1/localidades/estados/{codigoUFs}/mesorregioes")]
+        Task<List<Mesorregiao>> BuscarMesorregioesPorUFAsync(params long[] codigoUFs);
+
+        /// <summary>
+        /// Obtém o conjunto de mesorregiões do Brasil a partir dos identificadores das regiões
+        /// </summary>
+        /// <param name="codigoMacrorregioes">Um ou mais identificadores de regiões</param>
+        /// <returns>Lista de mesorregiões</returns>
+        [Get("/api/v1/localidades/regioes/{codigoMacrorregioes}/mesorregioes")]
+        Task<List<Mesorregiao>> BuscarMesorregioesPorMacrorregiaoAsync(params long[] codigoMacrorregioes);
     }
 }

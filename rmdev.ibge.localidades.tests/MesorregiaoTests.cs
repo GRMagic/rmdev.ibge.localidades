@@ -12,10 +12,10 @@
             // Arrange
 
             // Act
-            var regioes = await _api.BuscarMesorregioesAsync();
+            var mesorregioes = await _api.BuscarMesorregioesAsync();
 
             // Assert
-            Assert.True(regioes.Count() > 4);
+            Assert.True(mesorregioes.Count() > 4);
         }
 
         [Fact(DisplayName = "Buscar algumas mesoregiões")]
@@ -25,10 +25,10 @@
             // Arrange
 
             // Act
-            var regioes = await _api.BuscarMesorregioesAsync(3302, 3509);
+            var mesorregioes = await _api.BuscarMesorregioesAsync(3302, 3509);
 
             // Assert
-            Assert.True(regioes.Count() == 2);
+            Assert.True(mesorregioes.Count() == 2);
         }
 
         [Fact(DisplayName = "Buscar uma mesoregião")]
@@ -38,7 +38,7 @@
             // Arrange
 
             // Act
-            var regiao = await _api.BuscarMesorregiaoAsync(3509);
+            var mesorregiao = await _api.BuscarMesorregiaoAsync(3509);
 
             // Assert
             Assert.Equivalent(new
@@ -49,7 +49,7 @@
                 {
                     Id = 35L
                 }
-            }, regiao);
+            }, mesorregiao);
         }
 
         [Fact(DisplayName = "Buscar duas mesoregiões, sendo que uma não existe")]
@@ -59,10 +59,10 @@
             // Arrange
 
             // Act
-            var regiao = await _api.BuscarMesorregioesAsync(3509, 3599);
+            var mesorregiao = await _api.BuscarMesorregioesAsync(3509, 3599);
 
             // Assert
-            Assert.Single(regiao);
+            Assert.Single(mesorregiao);
         }
 
         [Fact(DisplayName = "Buscar uma mesoregiões que não existe")]
@@ -72,10 +72,79 @@
             // Arrange
 
             // Act
-            var regiao = await _api.BuscarMesorregiaoAsync(3599);
+            var mesorregiao = await _api.BuscarMesorregiaoAsync(3599);
 
             // Assert
-            Assert.Null(regiao);
+            Assert.Null(mesorregiao);
+        }
+
+        [Fact(DisplayName = "Buscar mesoregiões de uma UF")]
+        [Trait("Categoria", "Mesorregiões")]
+        public async Task UmCodigoValido_BuscarMesorregioesPorUF_ListaMesoregioes()
+        {
+            // Arrange
+
+            // Act
+            var mesorregioes = await _api.BuscarMesorregioesPorUFAsync(33);
+
+            // Assert
+            Assert.True(mesorregioes.Count > 4);
+        }
+
+        [Fact(DisplayName = "Buscar mesoregiões de uma UF sem informar a UF")]
+        [Trait("Categoria", "Mesorregiões")]
+        public async Task SemUF_BuscarMesorregioesPorUF_ListaVazia()
+        {
+            // Arrange
+
+            // Act
+            var mesorregioes = await _api.BuscarMesorregioesPorUFAsync();
+
+            // Assert
+            Assert.Empty(mesorregioes);
+        }
+
+        [Fact(DisplayName = "Buscar mesoregiões de duas UF")]
+        [Trait("Categoria", "Mesorregiões")]
+        public async Task DuasUF_BuscarMesorregioesPorUF_RegioesDeAbasUFs()
+        {
+            // Arrange
+
+            var idsUFs = new long[] { 33, 35 };
+
+            // Act
+            var mesorregioes = await _api.BuscarMesorregioesPorUFAsync(idsUFs);
+
+            // Assert
+            var ufs = mesorregioes.Select(r => r.UF.Id).ToHashSet();
+            Assert.Equal(idsUFs.Length, ufs.Count);
+            Assert.Subset(idsUFs.ToHashSet(), ufs);
+        }
+
+        [Fact(DisplayName = "Buscar mesoregiões de uma macroregião")]
+        [Trait("Categoria", "Mesorregiões")]
+        public async Task UmCodigoValido_BuscarMesorregioesPorMacrorregiao_ListaMesoregioes()
+        {
+            // Arrange
+
+            // Act
+            var mesorregioes = await _api.BuscarMesorregioesPorMacrorregiaoAsync(4);
+
+            // Assert
+            Assert.True(mesorregioes.Count > 15);
+        }
+
+        [Fact(DisplayName = "Buscar mesoregiões de uma macrorregião sem informar a macrorregiao")]
+        [Trait("Categoria", "Mesorregiões")]
+        public async Task SemMacrorregiao_BuscarMesorregioesPorMacrorregiao_ListaVazia()
+        {
+            // Arrange
+
+            // Act
+            var mesorregioes = await _api.BuscarMesorregioesPorMacrorregiaoAsync();
+
+            // Assert
+            Assert.Empty(mesorregioes);
         }
     }
 }

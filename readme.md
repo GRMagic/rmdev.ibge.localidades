@@ -10,6 +10,7 @@ Documentação da API do IBGE: https://servicodados.ibge.gov.br/api/docs/localid
 ## Buscas suportadas
 - Distritos
 - Municípios
+- Mesorregiões
 - Estados (UFs)
 - Regiões
 - Países

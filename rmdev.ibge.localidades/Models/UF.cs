@@ -1,9 +1,7 @@
 ﻿namespace rmdev.ibge.localidades
 {
-    public class UF
+    public class UF : Localidade
     {
-        public long Id { get; set; }
-        public string Nome { get; set; }
         public string Sigla { get; set; }
         public Macrorregiao Regiao { get; set; }
     }

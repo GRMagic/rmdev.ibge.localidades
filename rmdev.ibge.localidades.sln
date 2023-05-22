@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rmdev.ibge.localidades", "rmdev.ibge.localidades\rmdev.ibge.localidades.csproj", "{F060BAA1-D63E-4220-B7A0-8F4BB3A673D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rmdev.ibge.localidades", "rmdev.ibge.localidades\rmdev.ibge.localidades.csproj", "{F060BAA1-D63E-4220-B7A0-8F4BB3A673D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rmdev.ibge.localidades.tests", "rmdev.ibge.localidades.tests\rmdev.ibge.localidades.tests.csproj", "{C772B45E-E419-4B73-A0E1-309FD2C2D344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rmdev.ibge.localidades.tests", "rmdev.ibge.localidades.tests\rmdev.ibge.localidades.tests.csproj", "{C772B45E-E419-4B73-A0E1-309FD2C2D344}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rmdev.ibge.localidades.offline", "rmdev.ibge.localidades.offline\rmdev.ibge.localidades.offline.csproj", "{4EF78612-CEBF-499B-8D43-A8C4DC09954F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rmdev.ibge.localidades.offline.loader", "rmdev.ibge.localidades.offline.loader\rmdev.ibge.localidades.offline.loader.csproj", "{C4E9B74A-47D8-4731-BEF3-FAA5C725918B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{C772B45E-E419-4B73-A0E1-309FD2C2D344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C772B45E-E419-4B73-A0E1-309FD2C2D344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C772B45E-E419-4B73-A0E1-309FD2C2D344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EF78612-CEBF-499B-8D43-A8C4DC09954F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EF78612-CEBF-499B-8D43-A8C4DC09954F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EF78612-CEBF-499B-8D43-A8C4DC09954F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EF78612-CEBF-499B-8D43-A8C4DC09954F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4E9B74A-47D8-4731-BEF3-FAA5C725918B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4E9B74A-47D8-4731-BEF3-FAA5C725918B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4E9B74A-47D8-4731-BEF3-FAA5C725918B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4E9B74A-47D8-4731-BEF3-FAA5C725918B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

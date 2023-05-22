@@ -1,11 +1,7 @@
 ﻿namespace rmdev.ibge.localidades
 {
-    public class Macrorregiao
+    public class Macrorregiao : Localidade
     {
-        public long Id { get; set; }
-
         public string Sigla { get; set; }
-
-        public string Nome { get; set; }
     }
 }

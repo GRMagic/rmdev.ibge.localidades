@@ -2,12 +2,8 @@
 
 namespace rmdev.ibge.localidades
 {
-    public class Municipio
+    public class Municipio : Localidade
     {
-        public long Id { get; set; }
-
-        public string Nome { get; set; }
-
         public Microrregiao Microrregiao { get; set; }
 
         [JsonPropertyName("regiao-imediata")]

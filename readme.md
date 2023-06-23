@@ -8,6 +8,7 @@ Biblioteca a facilitar o consumo da API de localidades do IBGE
 Documentação da API do IBGE: https://servicodados.ibge.gov.br/api/docs/localidades
 
 ## Buscas suportadas
+- Subdistritos
 - Distritos
 - Municípios
 - Mesorregiões

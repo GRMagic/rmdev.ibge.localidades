@@ -13,11 +13,11 @@ namespace rmdev.ibge.localidades
             responseMessage.EnsureSuccessStatusCode();
 
             var content = await responseMessage.Content.ReadAsStringAsync();
-            
+
             // Vazio como lista vazia
             if (string.IsNullOrWhiteSpace(content))
                 return new List<T>();
-            
+
             // Array como lista
             using var stringContent = new StringContent(content);
             if (content.FirstOrDefault() == '[')

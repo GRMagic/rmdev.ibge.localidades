@@ -5,10 +5,10 @@
         private readonly IIBGELocalidades _api;
         public MacrorregiaoTests() => _api = new IBGEClientFactory().Build("http://servicodados.ibge.gov.br/");
 
-		[Fact(DisplayName = "Buscar todas as macroregiões")]
-		[Trait("Categoria", "Macrorregiões")]
-		public async Task BuscarMacrorregioes_TodasMacrorregioes()
-		{
+        [Fact(DisplayName = "Buscar todas as macroregiões")]
+        [Trait("Categoria", "Macrorregiões")]
+        public async Task BuscarMacrorregioes_TodasMacrorregioes()
+        {
             // Arrange
 
             // Act
@@ -43,7 +43,7 @@
             // Assert
             Assert.Equivalent(new Macrorregiao
             {
-                Id= 4,
+                Id = 4,
                 Nome = "Sul",
                 Sigla = "S"
             }, regiao);

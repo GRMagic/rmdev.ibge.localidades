@@ -5,10 +5,10 @@
         private readonly IIBGELocalidades _api;
         public MesorregiaoTests() => _api = new IBGEClientFactory().Build("http://servicodados.ibge.gov.br/");
 
-		[Fact(DisplayName = "Buscar todas as mesoregiões")]
-		[Trait("Categoria", "Mesorregiões")]
-		public async Task BuscarMesorregioes_TodasMesorregioes()
-		{
+        [Fact(DisplayName = "Buscar todas as mesoregiões")]
+        [Trait("Categoria", "Mesorregiões")]
+        public async Task BuscarMesorregioes_TodasMesorregioes()
+        {
             // Arrange
 
             // Act

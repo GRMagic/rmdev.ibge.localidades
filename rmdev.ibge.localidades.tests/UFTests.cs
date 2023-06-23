@@ -28,12 +28,12 @@
             var uf = await _api.BuscarUFAsync(42);
 
             // Assert
-            Assert.Equivalent(new UF() 
+            Assert.Equivalent(new UF()
             {
                 Id = 42,
                 Nome = "Santa Catarina",
                 Sigla = "SC",
-                Regiao = new ()
+                Regiao = new()
                 {
                     Id = 4,
                     Sigla = "S",

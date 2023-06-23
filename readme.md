@@ -11,6 +11,7 @@ Documentação da API do IBGE: https://servicodados.ibge.gov.br/api/docs/localid
 - Subdistritos
 - Distritos
 - Municípios
+- Microregiões
 - Mesorregiões
 - Estados (UFs)
 - Regiões

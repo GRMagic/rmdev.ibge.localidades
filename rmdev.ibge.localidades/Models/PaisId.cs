@@ -13,7 +13,7 @@ namespace rmdev.ibge.localidades
         /// <summary>
         /// Identificador especificado pela norma ISO ALPHA-3, que define o identificador do país usando 3 letras
         /// </summary>
-        [JsonPropertyName("ISO-ALPHA-3")] 
+        [JsonPropertyName("ISO-ALPHA-3")]
         public string IsoAlfa3 { get; set; }
     }
 }

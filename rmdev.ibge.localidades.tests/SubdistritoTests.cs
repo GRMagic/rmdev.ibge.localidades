@@ -103,7 +103,7 @@
                 }
             }
             , subdistrito);
-           
+
         }
 
         [Fact(DisplayName = "Buscar subdistritos de vários distritos")]
@@ -137,7 +137,7 @@
             var ufsSet = subdistritos.Select(d => d.Distrito.Municipio.RegiaoImediata.RegiaoIntermediaria.UF.Id).ToHashSet();
             Assert.Subset(codigosUF.ToHashSet(), ufsSet);
         }
-        
+
         [Fact(DisplayName = "Buscar subdistritos de várias mesorregiões")]
         [Trait("Categoria", "Subdistritos")]
         public async Task CodigosValidos_BuscarSubdistritosPorMesorregiao_SubdistritosDasMesorregioesSelecionadas()
@@ -153,7 +153,7 @@
             Assert.Equal(codigosMesorregioes.Length, mesorregioesSet.Count);
             Assert.Subset(codigosMesorregioes.ToHashSet(), mesorregioesSet);
         }
-        
+
         [Fact(DisplayName = "Buscar subdistritos de várias microrregiões")]
         [Trait("Categoria", "Subdistritos")]
         public async Task CodigosValidos_BuscarSubdistritosPorMicrorregiao_SubdistritosDasMicrorregioesSelecionadas()
@@ -169,7 +169,7 @@
             Assert.Equal(codigosMicrorregioes.Length, microrregioesSet.Count);
             Assert.Subset(codigosMicrorregioes.ToHashSet(), microrregioesSet);
         }
-        
+
         [Fact(DisplayName = "Buscar subdistritos de vários municípios")]
         [Trait("Categoria", "Subdistritos")]
         public async Task CodigosValidos_BuscarsubdistritosPorMunicipio_SubdistritosDosMunicipiosSelecionados()
@@ -185,7 +185,7 @@
             Assert.Equal(codigosMunicipios.Length, municipiosSet.Count);
             Assert.Subset(codigosMunicipios.ToHashSet(), municipiosSet);
         }
-        
+
         [Fact(DisplayName = "Buscar subdistritos de várias regiões imediatas")]
         [Trait("Categoria", "Subdistritos")]
         public async Task CodigosValidos_BuscarSubdistritosPorRegiaoImediata_SubdistritosDasRegioesImediatasSelecionadas()
@@ -201,7 +201,7 @@
             Assert.Equal(codigosRegiaoImediata.Length, regiaoImediataSet.Count);
             Assert.Subset(codigosRegiaoImediata.ToHashSet(), regiaoImediataSet);
         }
-       
+
         [Fact(DisplayName = "Buscar subdistritos de várias macrorregiões")]
         [Trait("Categoria", "Subdistritos")]
         public async Task CodigosValidos_BuscarSubdistritosPorMacrorregiao_SubdistritosDasMacrorregioesSelecionadas()

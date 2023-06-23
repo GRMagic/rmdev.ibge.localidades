@@ -89,7 +89,6 @@ namespace rmdev.ibge.localidades
             return distritos.FirstOrDefault();
         }
 
-        //TODO: Ler documentação e implementar consultas por microrregiões 
         //TODO: Ler documentação e implementar consultas por regiões imediatas
         //TODO: Ler documentação e implementar consultas por regiões integradas de desenvolvimento
         //TODO: Ler documentação e implementar consultas por regiões intermediárias

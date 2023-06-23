@@ -9,10 +9,10 @@ namespace rmdev.ibge.localidades
         {
             string resultado = string.Empty;
             nome = nome.Trim().Normalize(NormalizationForm.FormKD);
-            foreach(var caractere in nome)
+            foreach (var caractere in nome)
             {
                 var categoria = CharUnicodeInfo.GetUnicodeCategory(caractere);
-                switch(categoria)
+                switch (categoria)
                 {
                     case UnicodeCategory.UppercaseLetter:
                     case UnicodeCategory.LowercaseLetter:

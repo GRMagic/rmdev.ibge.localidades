@@ -1,8 +1,4 @@
-﻿using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Xunit;
-
-namespace rmdev.ibge.localidades.tests
+﻿namespace rmdev.ibge.localidades.tests
 {
     public class MunicipioTests
     {
@@ -37,7 +33,7 @@ namespace rmdev.ibge.localidades.tests
             {
                 Id: > 0,
                 Nome.Length: > 0,
-                Microrregiao: 
+                Microrregiao:
                 {
                     Id: > 0,
                     Nome.Length: > 0,

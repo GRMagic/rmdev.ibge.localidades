@@ -15,27 +15,27 @@
             var paises = await _api.BuscarPaisesAsync(76);
 
             // Assert
-            Assert.Equivalent(new Pais 
+            Assert.Equivalent(new Pais
             {
-                Id = new ()
+                Id = new()
                 {
                     M49 = 76,
                     IsoAlfa2 = "BR",
                     IsoAlfa3 = "BRA"
                 },
                 Nome = "Brasil",
-                RegiaoIntermediaria = new ()
+                RegiaoIntermediaria = new()
                 {
                     Id = new() { M49 = 5 },
                     Nome = "América do sul"
                 },
-                SubRegiao = new ()
+                SubRegiao = new()
                 {
-                    Id = new () { M49 = 419 },
+                    Id = new() { M49 = 419 },
                     Nome = "América Latina e Caribe",
                     Regiao = new()
                     {
-                        Id = new() { M49= 19 },
+                        Id = new() { M49 = 19 },
                         Nome = "América"
                     }
                 }

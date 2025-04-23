@@ -30,7 +30,7 @@
     <None Include="..\readme.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Refit" Version="7.0.0" />
+    <PackageReference Include="Refit" Version="8.0.0" />
   </ItemGroup>
 
 </Project>
